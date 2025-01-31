@@ -1,0 +1,138 @@
+<!DOCTYPE  html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detection of Sensitive Data exposure in Images">
+    <title>Detector of Sensitivity </title>
+    <link rel="icon" href="./assets/images/icons/file.png">
+    <link rel="stylesheet" href="./assets/style.css">
+    <!-- Adicione isso no seu HTML (antes do script.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel=”stylesheet” href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- TensorFlow JS and Tesseract -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+  </head>
+<body>
+  <nav  class="navbar">
+    <div class="title"><a href="">Sensitive Text Detection</a></div>
+    <div class="toggle-button">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+       
+    <div class="navbar-links">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+         <!--<li class="darkmode-button">
+          <input type="checkbox" class="checkbox" id="chk"/>
+          <label class="label" for="chk">
+            <i class="fas fa-sun"></i>	    
+            <i class="fas fa-moon"></i>
+            <div class="ball"></div>
+          </label>
+        </li>-->
+    </ul>
+  </div>
+  </nav>
+  
+  <div class="section">
+  <div class="big-text">Detection of Sensitive Data Exposure in Documents</div>
+  <div class="main-container">
+    <button class="browse-button">
+      <span class="material-symbols-outlined">upload</span>
+      Browse File
+    </button>
+    <div class="drag-area">
+      <div class="icon"><i class="fas fa-cloud-upload-alt fa-4x"></i></div> 
+      <header></header>
+      <input type="file" id="fileInput" hidden accept=".pdf">
+      <p class="file-name"></p>
+  </div>
+  
+  
+    <div id="progressStatus"> 
+      <div id="progressBar">1%</div> 
+    </div> 
+    <div class="classification non-sensitive main-title"><i class="fas fa-check-square"></i> Non-Sensitive</div>
+    <div class="classification sensitive main-title"><i class="fas fa-times-circle"></i> Sensitive</div>
+  </div>
+  </div>
+
+  <div id="about" class="section secondary">
+    <div>
+      <div class="big-text">
+        ABOUT
+    </div>
+    <p class="about-text">
+      The <strong>Sensitive Text Detection</strong> project is designed to identify and classify sensitive data in digital documents.  
+      Using advanced <strong>Natural Language Processing (NLP)</strong> and <strong>Machine Learning</strong> techniques, the system ensures that confidential information is properly detected, helping businesses and researchers comply with data privacy regulations.
+      The project is particularly useful for preventing the accidental exposure of classified or personally identifiable information (PII) before documents are shared or stored.
+    </p>
+    </div>
+    
+    <div>
+      <div class="main-title">About the project</div>
+      <p class="about-text">
+        This tool provides an intuitive interface that allows users to <strong>upload files</strong> for automated analysis.  
+        Once uploaded, the system processes the document, scans for potentially sensitive information, and categorizes it accordingly.
+        The project leverages deep learning models to enhance detection accuracy, ensuring reliable and efficient identification of sensitive content in various document formats.
+    </p>
+      <a href="LINK_AQUI" class="github-button" target="_blank">
+        View Source Code on Github
+      </a>
+      
+      </a>
+    </div>   
+  </div>
+
+  <div id="team" class="section">
+      <div class="big-text underline">
+        Meet our team
+      </div>
+      <div class="team-members">
+        
+        <div class="member">
+          <div class="circular-portrait">
+          <img src="./assets/images/placeholder.jpg" alt="Not Found" onerror="this.src='./assets/images/placeholder.jpg'">
+          </div>
+          <a href="" target="_blank">
+            <p>Maurício Konrath</p>
+          </a>  
+        </div>
+        
+        <div class="member">
+          <div class="circular-portrait">
+          <img src="./assets/images/placeholder.jpg" lt="Not Found" onerror="this.src='./assets/images/placeholder.jpg'">
+          </div>
+          <a href="" target="_blank">
+            <p>Wellington F. Silvano</p>
+          </a>  
+        </div>  
+      
+    </div>
+  </div>
+
+  <div class="footer">
+    <!-- <p class="footer-text">Hosted using</p>
+    <img src="./assets/images/firebase.svg" alt="Firebase icon"> -->
+    <p class="footer-text">© Sensitive Text Detection - 2025</p>
+  </div>
+
+<!-- <div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div> -->
+
+<script src="./assets/script.js"></script>
+</body>
+</html>

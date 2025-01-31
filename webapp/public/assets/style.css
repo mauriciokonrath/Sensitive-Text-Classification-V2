@@ -1,0 +1,531 @@
+/*@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+:root{
+  --light: #FFF7FF;
+  --dark: #1B1E21;
+  --secondary-light: #FFFFFF;
+  --secondary-dark: #2b2b2b;
+  --color-primary: #7F00FF;
+  --color-secondary: #BD7BFF;
+
+  --background: var(--light);
+  --foreground: var(--dark);
+  --secondary-bg: var(--secondary-light);
+}
+
+
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: all 0.4s ease-in-out;
+}
+
+body.dark {
+ --background: var(--dark);
+ --foreground: var(--light);
+ --secondary-bg: var(--secondary-dark);
+
+ background-size: cover;
+}
+
+.navbar{
+  position:fixed;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: auto;
+  font-size: larger;
+  background: var(--secondary-dark);
+  color: var(--light);
+  z-index: 10;
+}
+
+.navbar-links ul{
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-links li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: var(--light);
+  display: block;
+}
+
+.navbar-links li a, .darkmode-button{
+  padding: 1rem 2rem;
+}
+
+.navbar-links li a:hover{
+  background-color: var(--dark);
+}
+
+.toggle-button{
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: var(--light);
+  border-radius: 10px;
+}
+
+.title{
+  letter-spacing: 2px;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin: 0.5rem 1rem;
+}
+
+.section{
+  margin-top: 60px;
+  min-height: 50vh;
+  padding: 20px 10px;
+}
+
+.section.secondary {
+  background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, .65) 100%), 
+              url(./images/about3.jpg) no-repeat center center;
+  background-size: cover; /* Aumenta a área da imagem para simular um zoom out */
+  background-position: center; /* Mantém a imagem centralizada */
+  background-color: var(--color-primary);
+  clip-path: none;
+  color: var(--light);
+  margin: 10px 0px;
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  align-items: center;
+  text-align: center;
+}
+@media screen and (max-width: 800px) {
+  .section.secondary {
+    grid-template-columns: 1fr; /* Em telas menores, empilha os itens */
+    text-align: center;
+  }
+}
+
+.section.secondary p{
+  text-align: justify;
+  padding: 10px 20px;
+  text-indent: 40px;
+}
+
+.big-text{
+  padding:10px;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.main-title{
+  padding: 10px;
+  letter-spacing: 2px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main-container{
+  max-width: 550px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0px;
+  margin: 10px auto;
+}
+
+
+.drag-area .icon{
+  font-size: 100px;
+  color: var(--foreground);
+}
+.drag-area header{
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+.drag-area span{
+  font-size: 25px;
+  font-weight: 500;
+  color: var(--foreground);
+  margin: 10px 0 15px 0;
+}
+
+
+button:hover {
+  background-color: #bd7bff !important; /* Cor ao passar o mouse */
+  color: white !important; /* Texto branco para contraste */
+  transform: scale(1.05);
+}
+
+.member:hover, .member:focus, .member:active {
+  background-color: #bd7bff; /* Nova cor ao passar o mouse nos membros */
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Estilização exclusiva para o botão "Browse File" */
+.browse-button {
+  display: flex; /* Adicionado para centralizar o conteúdo */
+  align-items: center; /* Alinha o texto e o ícone */
+  justify-content: center;
+  gap: 8px; /* Espaçamento entre ícone e texto */
+  margin: 10px 5px;
+  padding: 30px 60px;
+  font-size: 24px;
+  font-weight: 800;
+  border: none; 
+  outline: none;
+  background: var(--color-primary);
+  color: var(--light);
+  border-radius: 80px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  overflow: hidden; /* Evita que o link ultrapasse os cantos arredondados */
+
+}
+.browse-button .material-symbols-outlined {
+  font-size: 24px; /* Define o tamanho do ícone */
+  vertical-align: middle; /* Alinha melhor o ícone */
+}
+
+.browse-button:hover {
+  background-color: #bd7bff; /* Cor mais escura ao passar o mouse */
+  transform: scale(1.05);
+}
+
+/* Estilização exclusiva para o botão "View Source Code on Github" */
+.github-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 5px;
+  padding: 20px 50px;
+  font-size: 20px;
+  font-weight: 800;
+  background: var(--color-primary); /* Usa a cor principal */
+  color: var(--light);
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none; /* Remove sublinhado */
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.github-button:hover {
+  background-color: #bd7bff; /* Cor secundária ao passar o mouse */
+  transform: scale(1.05);
+}
+
+.drag-area img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.about-text {
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+  font-weight: 500;
+  text-align: center; /* Centraliza o texto */
+  max-width: 800px; /* Limita a largura máxima */
+  margin: 20px auto; /* Centraliza horizontalmente */
+  line-height: 1.6; /* Melhora o espaçamento entre linhas */
+}
+
+
+#output{
+  display: none;
+}
+
+.checkbox {
+  display: none;
+}
+
+
+#team{
+  margin: 10px 0px;
+  padding-top:60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team-members, .steps{
+  display: grid;
+  place-items: center;
+  grid-gap: 40px 50px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.steps{
+  justify-content: stretch;
+  margin: 20px 30px;
+}
+
+.big-text.underline{
+  padding-bottom: 2px;
+  border-bottom: 3px solid var(--foreground);
+  margin-bottom: 20px;
+}
+
+.member{
+  background-color: var(--secondary-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  letter-spacing: .75px;
+  font-weight: 500;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.single-step{
+  background-color: var(--secondary-bg);
+  display: grid;
+  padding-top: 20px;
+  grid-template-rows: auto auto;
+  grid-gap: 10px;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.single-step-content{
+  align-self: flex-start;
+  padding: 5px 10px 20px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.member{
+  border-radius: 15px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+}
+
+.circular-portrait {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.circular-portrait img {
+  width: 100%;
+  height: auto;
+}
+
+.single-step img{
+  max-width: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 10px;
+}
+.single-step img{
+  border-radius: 0;
+  max-width: 100px;
+}
+
+.member a{
+  color: var(--foreground);
+  font-size: 1.25rem;
+  padding: 15px 0 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.member a:hover{
+  transform: scale(1.05);
+}
+
+@media screen and (max-width: 800px) {
+  .section.secondary{
+    grid-template-columns: 1fr;
+    clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 100%);
+  }
+
+  .team-members{
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .steps{
+    grid-template-columns: 1fr;
+  }
+
+  .single-step{
+    padding-top: 0px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links{
+    display: none;
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links ul{
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links li {
+    text-align: center;
+  }
+
+  .navbar-links li a{
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-links.active{
+    display: flex;
+  }
+
+  .team-members{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.label {
+  background-color: var(--background);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  height: 24px;
+  width: 50px;
+  transform: scale(1.5);
+}
+
+.label .ball {
+  background-color: var(--foreground);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 20px;
+  width: 20px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+  font-size: 17px;
+}
+
+.fa-sun {
+  color: #f39c12;
+  font-size: 17px;
+}
+
+.classification {
+  display: none;
+  border-width:5px;  
+  border-style:outset;
+  padding: 5px;
+  width: auto;
+  color:var(--foreground);
+  margin-top: 50px; /* Aumenta o espaçamento acima */
+}
+
+.fa-check-square {
+  color: #00bd00;
+}
+
+.fa-times-circle{
+  color: #f20505
+}
+
+#progressStatus {
+  display: none;
+  width: 92%;
+  min-width: 300px;
+  margin: 5px; 
+  padding: 10px;
+  background-color: var(--color-secondary); 
+} 
+  
+#progressBar{ 
+  display: none;
+  width: 1%; 
+  height: 30px; 
+  background-color:var(--color-primary);
+  text-align: center; 
+  line-height: 32px;
+  font-size: large;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--light); 
+}
+
+.footer{
+  background-color: var(--secondary-bg);
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  fill: var(--foreground);
+}
+
+.footer-text{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
